@@ -1,0 +1,170 @@
+.App {
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(https://source.unsplash.com/collection/212223/wanderer);
+  background-size: cover;
+  filter: brightness(50%);
+  z-index: 1;
+}
+
+.notes-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  color: white;
+  background-color: none;
+  height: 100%;
+  width: 20%;
+  margin: 50px 45px 50px 0;
+  border: none;
+  
+}
+
+.notes-title {
+  text-align: center;
+  letter-spacing: 20px;
+  font-size: 40px;
+  font-weight: 400;
+  margin: 10px 0 20px 0px;
+}
+
+.notes-text {
+  resize: none;
+  width: 100%;
+  height: 70%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.notes-text:focus {
+  outline: none;
+}
+
+.notes-text::placeholder {
+  color: white;
+}
+
+.line {
+  height: 100%;
+  width: 1px;
+  border-right: 1px solid white;
+  margin: 50px 0 50px 0;
+}
+
+.table {
+  margin-left: 50px;
+  margin-top: 70px;
+}
+
+.leaf {
+  border: 1px solid white;
+  padding: 30px 30px 30px 40px;
+  width: 290px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.05);
+  margin: 10px;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+}
+
+.input-text {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: white;
+  border: none;
+  resize: none;
+}
+
+.input-text:focus {
+  outline: none;
+}
+
+.one {
+  border-radius: 50px 0 0 0;
+}
+
+.four {
+  border-radius: 0 0 50px 0;
+}
+
+
+.title {
+  font-size: 24px;
+  color: white;
+  letter-spacing: 3px;
+  text-align: center;
+  line-height: 20px;
+}
+
+
+
+.urgent, .notUrgent {
+  transform: rotate(270deg);
+
+}
+
+.side {
+  width: 10px !important;
+  height: auto;
+}
+
+.important, .notImportant {
+  padding-bottom: 10px;
+}
+
+.contact {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  z-index: 1;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  text-align: right;
+}
+
+.contact-link {
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.contact-link:hover {
+  color: gray;
+  cursor: hover;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,38 @@
+Monday
+  Get the basic layout done (table)
+    To do: clock, unsplash creds, 4 leafs
+
+Tuesday
+  CSS + Database
+    To do: Favicon, database
+
+Wednesday
+  Finish database + chrome packaging?
+
+Thursday
+  Presentation practice + figure out chrome 
+
+FriYay!
+  Yay!
+  
+To do:
+-bullet points --> objects
+-time
+-credits
+
+
+https://zpl.io/2kP2c0
+
+/* Line: */
+border: 1px solid #FFFFFF;
+/* notes: */
+font-family: .SFNSDisplay;
+font-size: 48px;
+color: #FFFFFF;
+letter-spacing: 10px;
+/* It is now possible t: */
+font-family: .AppleSystemUIFont;
+font-size: 18px;
+color: #FFFFFF;
+letter-spacing: 1.5px;
+line-height: 21px;

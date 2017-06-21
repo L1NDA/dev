@@ -4,7 +4,9 @@ class Notes extends React.Component {
   
   constructor() {
     super();
-    this.state = {note: ""};
+    this.state = {
+      note: ""
+    };
   }
   
   _handleInput = (event) => {
@@ -13,7 +15,6 @@ class Notes extends React.Component {
       note: value
     });
   }
-  
 
   render() {
         
@@ -22,9 +23,10 @@ class Notes extends React.Component {
         <p className="notes-title">notes</p>
         <textarea className="notes-text"
                   type="text"
-                  placeholder="Make a note!"
+                  // placeholder="Make a note!"
                   value={this.state.note}
-                  onInput={this._handleInput} />
+                  onInput={this._handleInput}
+                  onKeyPress={this._handleKeyPress}/>
 
       </div>
     )

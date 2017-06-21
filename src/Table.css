@@ -1,0 +1,12 @@
+.leafs {
+  display: flex;
+  width: 700px;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+
+.horizontal-titles {
+  display: flex;
+  flex-direction: row;
+}

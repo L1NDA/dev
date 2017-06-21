@@ -20,19 +20,35 @@ To do:
 -time
 -credits
 
+Stretch goals:
+-tabs
+-enter block highlight deleting
+
 
 https://zpl.io/2kP2c0
 
-/* Line: */
-border: 1px solid #FFFFFF;
-/* notes: */
-font-family: .SFNSDisplay;
-font-size: 48px;
-color: #FFFFFF;
-letter-spacing: 10px;
-/* It is now possible t: */
-font-family: .AppleSystemUIFont;
-font-size: 18px;
-color: #FFFFFF;
-letter-spacing: 1.5px;
-line-height: 21px;
+
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA_hfKDMpBi4ot-VGBnBoIwHenERTIwOl0",
+    authDomain: "div-1c0c2.firebaseapp.com",
+    databaseURL: "https://div-1c0c2.firebaseio.com",
+    projectId: "div-1c0c2",
+    storageBucket: "",
+    messagingSenderId: "180264721425"
+  };
+  firebase.initializeApp(config);
+</script>
+
+Questions
+1. Unsplash load
+3. Database
+4. https://forismatic.com/en/api/
+
+
+Unsplash backgrounds:
+786665
+252265 pastel
+540595 warm & muted

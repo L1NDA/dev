@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './Input.js';
+import InputFinal from './InputFinal.js';
 
 class LeafTwo extends React.Component {
 
@@ -8,7 +8,7 @@ class LeafTwo extends React.Component {
       
     return (
       <div className="leaf two">
-        <Input/>
+        <InputFinal leaf="two"/>
       </div>
         
     )

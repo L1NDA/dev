@@ -1,6 +1,7 @@
 import React from 'react';
 import Notes from './Notes.js';
 import Table from './Table.js';
+import Clock from './Clock.js';
 
 class Container extends React.Component {
 
@@ -9,10 +10,12 @@ class Container extends React.Component {
       
     return (
       <div className="container">
+        <Clock />
         <Notes />
         <div className="line"></div>
         <Table/>
-        <div className="contact">Problems? <br/><a href="mailto:qinx@college.harvard.edu" className="contact-link">Let us know!</a></div>
+        <div className="contact-box"><div className="contact">problems?</div><div  className="contact contact-link"><a href="mailto:qinx@college.harvard.edu" className="contact-link">let us know</a></div></div>
+        
       </div>
         
     )
@@ -21,3 +24,5 @@ class Container extends React.Component {
 }
 
 export default Container;
+
+// <img src={require('./static/icon.png')} className="icon"/>

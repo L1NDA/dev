@@ -1,11 +1,26 @@
+@import url("Table.css");
+
+@keyframes fadeIn {
+   0% {opacity: 0;}
+   100% {opacity: 1;}
+} 
+  
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
 .App {
   height: 100%;
   width: 100%;
 }
 
+
 .container {
   height: 100%;
   width: 100%;
+  min-width: 700px;
+  min-height: 650px;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -17,6 +32,12 @@
   font-family: 'Muli', sans-serif;
 }
 
+.background-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 .background {
   height: 100%;
   width: 100%;
@@ -25,7 +46,7 @@
   /*background-size: cover;*/
   filter: brightness(80%);
   z-index: 1;
-  
+  animation-duration: 4s;
 }
 
 .gradient {
@@ -33,8 +54,8 @@
   height: 100%;
   width: 100%;
   z-index: 2;
-  background: radial-gradient(ellipse at center, rgba(255,255,255, 0) 0%, rgba(0,0,0, .8) 100%);
-  opacity: .7;
+  background: radial-gradient(ellipse at center, rgba(255,255,255, 0) 0%, rgba(0,0,0, .5) 100%);
+  animation-duration: 3s;
 }
 
 /*.bg-gradient {*/
@@ -45,24 +66,39 @@
 /*  z-index: 20;*/
 /*}*/
 
+.drag-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.notes-container {
+  height: 100%;
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+
 .notes-box {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
   text-align: left;
   color: white;
   background-color: none;
   height: 100%;
-  width: 20%;
-  margin-right: 45px;
+  width: 90%;
+  min-width: 200px;
+  margin-right: 40px;
   border: none;
-  
+  animation-duration: 4s;
 }
 
 .notes-title {
   text-align: center;
-  letter-spacing: 16px;
-  font-size: 40px;
+  letter-spacing: 20px;
+  font-size: 50px;
   font-weight: 300;
   margin: 10px 0 15px 0px;
 }
@@ -70,14 +106,15 @@
 .notes-text {
   resize: none;
   width: 100%;
-  height: 100%;
+  height: 75%;
   background-color: transparent;
   color: white;
   border: none;
-  font-size: 16px;
-  letter-spacing: 1.3px;
+  font-size: 15px;
+  letter-spacing: 1.4px;
   font-weight: 300;
   line-height: 20px;
+  margin-bottom: 10px;
 }
 
 .notes-text:focus {
@@ -94,19 +131,9 @@
   border-right: 1px solid white;
   margin: 50px 0 50px 0;
   overflow: hidden;
+  animation-duration: 8s;
 }
 
-.table {
-  margin-left: 7%;
-  margin-top: 6.5%;
-}
-
-.leaf {
-  border: 1px solid white;
-  width: 325px;
-  height: 180px;
-  margin: 10px;
-}
 
 .input {
   width: 100%;
@@ -125,6 +152,8 @@
   letter-spacing: 1.2px;
   font-weight: 300;
   line-height: 22px;
+  transition: background-color .5s;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .one:focus {
@@ -165,18 +194,14 @@
   font-weight: 300;
 }
 
-.urgent, .notUrgent {
-  transform: rotate(270deg);
-}
+
 
 .side {
   width: 10px !important;
   height: auto;
 }
 
-.important, .notImportant {
-  padding-bottom: 10px;
-}
+
 
 .contact {
   color: white;
@@ -208,9 +233,21 @@
   flex-direction: column;
   justify-content: flex-end;
   position: absolute;
-  right: 1%;
+  right: 2%;
   bottom: 2%;
   z-index: 1;
+}
+
+.creds {
+  position: absolute;
+  left: 1%;
+  bottom: 1.5%;
+  font-family: 'Muli', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  opacity: .7;
+  letter-spacing: 1.5px;
 }
 
 a {
@@ -219,7 +256,7 @@ a {
 
 .date {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 5%;
   right: 5%;
   z-index: 1;
@@ -227,6 +264,7 @@ a {
   color: white;
   text-transform: uppercase;
   font-family: 'Muli', sans-serif;
+  animation-duration: 3s;
 }
 
 .dayDate {
@@ -269,7 +307,7 @@ a {
 /*  margin: 0 20px;*/
 /*}*/
 
-.example-appear {
+/*.example-appear {
   opacity: 0.01;
 }
 
@@ -294,8 +332,179 @@ a {
 .gradientTransition-appear.gradientTransition-appear-active {
   opacity: 1;
   transition: opacity 3s ease-in;
-}
+}*/
 
 /*.gradientTransition-enter.gradientTransition-enter-active {*/
 /*  transition: 0.2s ease-in;*/
 /*}*/
+
+.quote-container {
+  width: 100%;
+}
+
+.quotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 13px;
+  opacity: 0.8;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.author {
+  margin-top: 3px;
+}
+
+/*.saved {*/
+/*  position: absolute;*/
+/*  top: 100px;*/
+/*  right: 50px;*/
+/*  color: white;*/
+/*}*/
+
+
+
+
+
+
+/* MEDIA QUERIES */
+
+/*@media screen and (max-width: 1024px)  {*/
+/*  .two, .three, .four, .urgent, .noturgent, .notimportant, .date, .flex-title {*/
+/*    display: none;*/
+/*  }*/
+/*}*/
+  
+  @media screen and (max-width: 1044px) {
+  .leaf-wrapper-one, .two, .three, .four, .urgent, .noturgent, .notimportant, .date, .flex-title {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .4s, opacity .4s linear;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .two, .three, .four, .urgent, .noturgent, .notimportant, .date, .flex-title {
+    display: none;
+  }
+  
+  .leaf-wrapper-two, .leaf-wrapper-three, .leaf-wrapper-four, .leaf-wrapper, {
+    display: none;
+  }
+  
+  
+  
+  .title {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*align-items: center;*/
+    text-align: center;
+    letter-spacing: 10px;
+    font-size: 50px;
+    font-weight: 300;
+    margin: 10px 0 15px 40px;
+    height: 63px;
+    line-height: normal;
+    transition: all .5s ease-in;
+  }
+  
+  .important {
+    visibility: visible;
+    height: 63px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /*.dynamic-title {*/
+  /*  display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+  /*  text-align: center;*/
+  /*  letter-spacing: 10px;*/
+  /*  font-size: 50px;*/
+  /*  font-weight: 300;*/
+  /*  margin: 10px 0 15px 40px;*/
+  /*  height: 63px;*/
+  /*  line-height: normal;*/
+  /*  transition: all .5s ease-in;*/
+  /*}*/
+  
+  .table, .table-container {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .leaf-wrapper-one {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 314px;
+    position: fixed;
+    transition: all .5s ease-in;
+  }
+  
+  .input-text {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    
+  }
+  
+  .leaf {
+    border: none;
+    height: 100%;
+  }
+  
+  .one:focus {
+    outline: none;
+    background-color: transparent;
+    transition: none;
+    border: none;
+    border-radius: 0;
+  }
+  
+  .one {
+    visibility: visible;
+    width: 100%;
+    height: 75%;
+    color: white;
+    border: none;
+    font-size: 15px;
+    letter-spacing: 1.4px;
+    font-weight: 300;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 720px)  {
+  .notes-box {
+    min-width: 0;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  .notes-container, .line {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .3s, opacity .3s linear;
+  }
+  
+}
+
+@media screen and (max-width: 660px) {
+  .notes-container, .line {
+    display: none;
+  }
+}

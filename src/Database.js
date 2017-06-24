@@ -11,15 +11,28 @@
   
   firebase.initializeApp(config);
   
-  export function storeData(data) {
-    firebase.database().ref('notes/').set(data);
+  export function storeData(data, userId) {
+    return firebase.database().ref(userId).set(data);
   }
   
-  export function pullData() {
+  export function storeNotes(data, userId) {
+    return firebase.database().ref(userId + "notepad").set(data);
+  }
+  
+  export function pullData(userId) {
     // var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('notes/').once('value').then(function(snapshot) {
+    return firebase.database().ref(userId).once('value').then(function(snapshot) {
         var notes = snapshot.val();
-        console.log("database: " + notes);
+        // console.log("pullData: " + snapshot.val())
+        return notes;
+      });
+  }
+  
+  export function pullNotes(userId) {
+    // var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref(userId + "notepad").once('value').then(function(snapshot) {
+        var notes = snapshot.val();
+        // console.log("database: " + notes);
         return notes;
       });
   }

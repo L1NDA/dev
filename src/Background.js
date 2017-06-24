@@ -1,22 +1,37 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Background extends React.Component {
 
+    constructor() {
+      super();
+      this.state = {
+        load: false
+      }
+    }
+    
+    componentWillMount() {
+      this.changeLoad();
+    }
+    
+    changeLoad = () => {
+      setTimeout( this.changeState, 1000)
+    }
+    
+    changeState = () => {
+      this.setState({
+        load: true
+      })
+    }
+    
     
     render() {
-
       return (
-        <ReactCSSTransitionGroup
-        transitionName="backgroundTransition"
-        transitionAppear={true}
-        transitionAppearTimeout={2500}
-        transitionEnter={false}
-        transitionLeave={false}>
-          <div className="background">
-              <img src="https://source.unsplash.com/collection/540595/1600x900"/>
-            </div>
-        </ReactCSSTransitionGroup>
+          <div className="background-container">
+            {this.state.load ?
+            <div className="background fadeIn">
+                <img src="https://source.unsplash.com/collection/202300/1600x900" alt="background!"/>
+              </div> : null}
+          </div>
       )
   }
   

@@ -10,13 +10,13 @@ class Clock extends React.Component {
     }
   }
   
-  componentWillMount = () => {
-    this.setState({
-      time: moment().format('h:mm a'),
-      day: moment().format('ddd'),
-      dateOfMonth: moment().format("D")
-    });
-  }
+  // componentWillMount = () => {
+  //   this.setState({
+  //     time: moment().format('h:mm a'),
+  //     day: moment().format('ddd'),
+  //     dateOfMonth: moment().format("D")
+  //   });
+  // }
   
   componentDidMount = () => {
     var interval = setInterval(this.updateDate, 100)
@@ -41,7 +41,7 @@ class Clock extends React.Component {
   render() {
     
     return(
-        <div className="date">
+        <div className="date fadeIn">
           <div className="dayDate">
             <div className="day">
               {this.state.day}

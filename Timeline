@@ -44,7 +44,7 @@ https://zpl.io/2kP2c0
 
 Questions
 1. Unsplash load
-3. Database
+3. Debounce (expected a function)
 4. https://forismatic.com/en/api/
 
 
@@ -52,3 +52,114 @@ Unsplash backgrounds:
 786665
 252265 pastel
 540595 warm & muted
+
+
+
+<div className="title important">{leaf.titleText}</div>
+                  : [
+                      (leaf.titleText === 'urgent'
+                      ? <div className="title important">{leaf.titleText}</div>
+                      : null
+                      )
+                    ]
+                    
+                    
+                    {leaf.hasTitle ? 
+                  [
+                    (leaf.hasTitleSide ? <div className="title important">{leaf.titleTextSide}</div>
+                    : <div className="title important">{leaf.titleText}</div>
+                    )
+                    
+                  ]
+                  : null
+                }
+                
+                
+  {leaf.hasTitleSide 
+                ? (<div className="title important">{leaf.titleText}</div>,
+                  <div className="title important">{leaf.titleTextSide}</div>,
+                  console.log('third item'),
+                  console.log('fourth item'),
+                  console.log('fifth item')
+                  
+                   )
+                : [
+                    (leaf.hasTitle
+                      ? <div className="title important">{leaf.titleText}</div>
+                      : null
+                    )
+                  ]
+                 
+               }
+               
+               
+  // { if (leaf.hasTitleSide) { 
+                   
+              //     <div classname="title important">{leaf.titleText}</div>,
+              //     <div className="title important">{leaf.titleTextSide}</div>
+                  
+              //     } else if (leaf.hasTitle) {
+              //       <div className="title important">{leaf.titleText}</div>
+              //     } else {
+              //       null
+              //     }
+               
+              // }
+              
+    /*if (cookie.load('userId') === undefined) {
+      id = uuidv4();
+      cookie.save('userId', id, { path: '/' });
+      console.log("no id: " + id);
+        this.state = {
+          userId: id,
+          leafs: [
+            {
+              leaf: 'one',
+              note: '',
+              hasTitle: true,
+              hasTitleSide: true,
+              titleText: 'important',
+              titleTextSide: 'urgent'
+            },
+            {
+              leaf: 'two',
+              note: '',
+              hasTitle: true,
+              titleText: 'not important',
+            },
+            {
+              leaf: 'three',
+              note: '',
+              hasTitle: true,
+              titleText: 'not urgent'
+            },
+            {
+              leaf: 'four',
+              note: ''
+            },
+          ]
+        };
+        
+    } else {*/
+    
+    
+    
+                  
+                  
+                   )
+                : [
+                    (leaf.hasTitle
+                      ? (
+                        leaf.leaf === "three"
+                        ? <div className={`title vertical-titles ${leaf.titleText.replace(/\s/g,'')}`}>{leaf.titleText}</div>
+                        : 
+                        )
+                      : null
+                    )
+                  ]
+                 
+               }
+    
+    
+Questions:
+-Table: ternary only returns one object?

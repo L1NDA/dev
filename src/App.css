@@ -28,6 +28,7 @@
   z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 50px;
   font-family: 'Muli', sans-serif;
 }
@@ -42,8 +43,8 @@
   height: 100%;
   width: 100%;
   overflow: hidden;
-  /*background-image: url(https://source.unsplash.com/collection/786665/1600x900);*/
-  /*background-size: cover;*/
+  background-image: url(https://source.unsplash.com/collection/786665/1600x900);
+  background-size: cover;
   filter: brightness(80%);
   z-index: 1;
   animation-duration: 4s;
@@ -69,6 +70,77 @@
 .drag-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.react-resizable {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 15px;
+  height: 500px;
+  right: 0;
+  box-sizing: border-box;
+  /*cursor: col-resize;*/
+  border-left: 1px solid white;
+}
+
+.toggleButtonClose {
+  color: black;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  margin-left: -4.5%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.toggleButtonClose:hover {
+  background-color: gray;
+  color: white !important;
+  border: 1px solid white;
+}
+
+.toggleButtonOpen {
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 48%;
+  left: 3%;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggleButtonOpen:hover {
+  border: 1px solid white;
+}
+
+.fa-angle-left {
+  color: black;
+}
+
+.notes-exist {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .notes-container {
@@ -77,6 +149,14 @@
   display: flex;
   justify-content: center;
   margin-right: 10px;
+}
+
+.notes-box-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notes-box {
@@ -127,13 +207,12 @@
 
 .line {
   height: 100%;
-  width: 1px;
+  width: 5px;
   border-right: 1px solid white;
-  margin: 50px 0 50px 0;
   overflow: hidden;
-  animation-duration: 8s;
+  animation-duration: 5s;
+  float: right;
 }
-
 
 .input {
   width: 100%;
@@ -352,6 +431,7 @@ a {
   width: 100%;
   text-align: center;
   margin: 10px 0;
+  cursor: pointer;
 }
 
 .author {
@@ -392,7 +472,7 @@ a {
     display: none;
   }
   
-  .leaf-wrapper-two, .leaf-wrapper-three, .leaf-wrapper-four, .leaf-wrapper, {
+  .leaf-wrapper-two, .leaf-wrapper-three, .leaf-wrapper-four, .leaf-wrapper {
     display: none;
   }
   

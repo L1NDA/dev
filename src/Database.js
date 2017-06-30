@@ -19,6 +19,12 @@
     return firebase.database().ref(userId + "notepad").set(data);
   }
   
+  export function storeOpen(data, userId) {
+    firebase.database().ref(userId + "arrow").set(data);
+    console.log("data: " + data)
+    console.log("userId: " + userId)
+  }
+  
   export function pullData(userId) {
     // var userId = firebase.auth().currentUser.uid;
     return firebase.database().ref(userId).once('value').then(function(snapshot) {
@@ -33,6 +39,15 @@
     return firebase.database().ref(userId + "notepad").once('value').then(function(snapshot) {
         var notes = snapshot.val();
         // console.log("database: " + notes);
+        return notes;
+      });
+  }
+  
+  export function pullOpen(userId) {
+    // var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref(userId + "arrow").once('value').then(function(snapshot) {
+        var notes = snapshot.val();
+        // console.log("pullData: " + snapshot.val())
         return notes;
       });
   }

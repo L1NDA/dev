@@ -2,6 +2,8 @@ import React from 'react';
 import { storeNotes, pullNotes } from './Database.js'
 import debounce from 'lodash/debounce';
 import $ from 'jquery';
+import Draggable from 'react-draggable';
+import { Resizable, ResizableBox } from 'react-resizable';
 
 class Notes extends React.Component {
   
@@ -12,7 +14,8 @@ class Notes extends React.Component {
     notes: "",
     leafs: [],
     isSaving: false,
-    quote: []
+    quote: [],
+    quotesClick: false 
   }
   }
   
@@ -34,6 +37,10 @@ class Notes extends React.Component {
     {this.quotes()}
 
 }
+
+  showSettings = (event) => {
+    event.preventDefault();
+  }
   
 /*  componentWillMount() {
     {this.quotes()}
@@ -85,7 +92,7 @@ class Notes extends React.Component {
         format: "jsonp"
       },
       success: function(response) {
-        if (response.quoteText.length > 100) {
+        if (response.quoteText.length > 100 || response.quoteText.length < 45) {
           that.quotes();
         } else if (response.quoteText.slice(-1) === ' ') {
             var temp = response.quoteText;
@@ -144,12 +151,25 @@ class Notes extends React.Component {
     isSaving: false
     })
   }
+  
+  _handleQuotesClick = () => {
+    this.quotes()
+  }
 
   render() {
     
     // console.log("notes prop: " + this.props.userId)
     
     return (
+/*      <ResizableBox
+        height={1000}
+        width={400}
+        axis="x"
+        onStart={this.handleStart}
+        onDrag={this.handleDrag}
+        onStop={this.handleStop}>*/
+        // <div className="drag-container">
+          <div className="notes-box-container">
           <div className="notes-box fadeIn">
             <div className="notes-title">notes</div>
             <textarea className="notes-text"
@@ -160,13 +180,16 @@ class Notes extends React.Component {
                       onKeyPress={this._handleKeyPress}/>
             <div className="quote-container">
             {this.state.quote ? 
-              <div className="quotes">
+              <div className="quotes" onClick={this._handleQuotesClick}>
                 <i className="quote">"{this.state.quote}"</i>
-                {this.state.author ? <i className="author">-{this.state.author}</i> : null}
+                {this.state.author ? <i className="author">-{this.state.author}</i> : <i className="author">-Unknown</i>}
               </div> : null }
             </div>
           </div>
-
+          <div className="line fadeIn"></div>
+          </div>
+        // </div>
+      // </ResizableBox>
     )
   }
 

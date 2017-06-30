@@ -29,7 +29,6 @@ class Background extends React.Component {
           <div className="background-container">
             {this.state.load ?
             <div className="background fadeIn">
-                <img src="https://source.unsplash.com/collection/202300/1600x900" alt="background!"/>
               </div> : null}
           </div>
       )

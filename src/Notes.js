@@ -1,5 +1,5 @@
 import React from 'react';
-import { storeNotes, pullNotes } from './Database.js'
+import { _storeNotes, _pullNotes } from './Database.js'
 import debounce from 'lodash/debounce';
 import $ from 'jquery';
 
@@ -8,31 +8,18 @@ class Notes extends React.Component {
   constructor() {
   super();
   this.state = {
-    userId: "",
     notes: "",
-    leafs: [],
     isSaving: false,
     quote: []
   }
   }
 
  componentWillMount = () => {
-
-    var id = this.props.userId;
-    pullNotes(id)
-    .then((res) => {
-      // console.log("there is an id notes" + id);
-      pullNotes(id)
-        .then((res) => {
-          this.setState({
-            userId: id,
-            notes: res
-            })
-          // this.props.save(res, this.props.leaf)
-        });
-    })
+   var data = this.props.notes
+   this.setState({
+     notes: data,
+     });
     {this.quotes()}
-
 }
 
 
@@ -88,11 +75,7 @@ class Notes extends React.Component {
   }
 
   stateNotes = () => {
-    storeNotes(this.state.notes, this.props.userId)
-    .then((res) => {
-      const debounced = debounce(this.savingState, 2000);
-      debounced()
-    })
+    _storeNotes(this.state.notes);
   }
 
   savingState = () => {
@@ -111,8 +94,6 @@ class Notes extends React.Component {
 
   render() {
 
-    // console.log("notes prop: " + this.props.userId)
-
     return (
           <div className="notes-box fadeIn">
             <div className="notes-title">notes</div>
@@ -121,7 +102,7 @@ class Notes extends React.Component {
                       // placeholder="Make a note!"
                       value={this.state.notes}
                       onInput={this._handleInput}
-                      onKeyPress={this._handleKeyPress}/>
+                      onChange={this._handleKeyPress}/>
             <div className="quote-container">
             {this.state.quote ?
               <div className="quotes">

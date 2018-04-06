@@ -3,7 +3,7 @@ import Notes from './Notes.js';
 import Table from './Table.js';
 import Clock from './Clock.js';
 import cookie from 'react-cookies'
-import { storeNotes, pullNotes, _storeData, _pullData } from './Database.js'
+import { _storeNotes, _pullNotes, _storeData, _pullData } from './Database.js'
 import uuidv4 from 'uuid/v4';
 
 class Container extends React.Component {
@@ -43,7 +43,7 @@ class Container extends React.Component {
   componentWillMount() {
     var data = _pullData()
     if (data != null) {
-      var notes = pullNotes()
+      var notes = _pullNotes()
       this.setState({
         leafs: data,
         notes: notes
@@ -57,10 +57,9 @@ class Container extends React.Component {
       <div className="container">
         <Clock />
         <div className="notes-container">
-          {this.state.userId ?
-          <Notes userId={this.state.userId}/> : null }
+          <Notes notes={this.state.notes}/>
         </div>
-        <div className="line fadeIn"></div>
+        <div className="line"></div>
         <Table leafs={this.state.leafs}/>
         <div className="creds">CZ & LQ for i_X</div>
         <div className="contact-box"><div className="contact">problems?</div><div  className="contact contact-link"><a href="mailto:qinx@college.harvard.edu" className="contact-link">let us know</a></div></div>

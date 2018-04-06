@@ -76,7 +76,6 @@ class InputFinal extends React.Component {
           data: arrayNew,
         },
         () => {
-          console.log("handle keypress position", mousePosition);
           this.refs[this.props.leaf.leaf].setSelectionRange(mousePosition, mousePosition)
         }
       );
@@ -84,14 +83,6 @@ class InputFinal extends React.Component {
       this.props.save(arrayNew, this.props.leaf);
     }
 }
-
-  moveMouse(mousePosition) {
-    var mousePlace = mousePosition + 3;
-    this.setState({
-      mousePosition: mousePlace,
-    });
-    console.log("move mouse selection: " + this.refs[this.props.leaf.leaf].selectionStart)
-  }
 
   render() {
 

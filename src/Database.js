@@ -3,7 +3,7 @@
     return localStorage.setItem("divData", JSON.stringify(data));
   }
 
-  export function storeNotes(data) {
+  export function _storeNotes(data) {
     localStorage.removeItem("divNotes")
     return localStorage.setItem("divNotes", JSON.stringify(data));
   }
@@ -12,6 +12,6 @@
     return JSON.parse(localStorage.getItem('divData'));
   }
 
-  export function pullNotes() {
+  export function _pullNotes() {
     return JSON.parse(localStorage.getItem('divNotes'));
   }

@@ -8,22 +8,22 @@ class Background extends React.Component {
         load: false
       }
     }
-    
+
     componentWillMount() {
       this.changeLoad();
     }
-    
+
     changeLoad = () => {
       setTimeout( this.changeState, 1000)
     }
-    
+
     changeState = () => {
       this.setState({
         load: true
       })
     }
-    
-    
+
+
     render() {
       return (
           <div className="background-container">
@@ -34,7 +34,7 @@ class Background extends React.Component {
           </div>
       )
   }
-  
+
 }
 
 

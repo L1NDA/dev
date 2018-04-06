@@ -17,7 +17,6 @@ class Table extends React.Component {
 
   componentWillMount = () => {
       var data = this.props.leafs
-      // console.log("table data", JSON.parse(JSON.stringify(data)));
       this.setState({
         leafs: data,
         });
@@ -69,8 +68,8 @@ class Table extends React.Component {
         </div> : null }
 
       <div className="title flex-title">
-        <div className="vertical-titles urgent fadeIn">urgent</div>
-        <div className="vertical-titles noturgent fadeIn">not urgent</div>
+        <div className="vertical-titles urgent">urgent</div>
+        <div className="vertical-titles noturgent">not urgent</div>
       </div>
 
       <div className="table fadeIn">
@@ -86,7 +85,7 @@ class Table extends React.Component {
                     : null)
                 : null }
 
-                <div className={`leaf ${leaf.leaf}`}>
+                <div className={`leaf fadeIn ${leaf.leaf}`}>
                   <InputFinal leaf={leaf} save={this.saveNote}/>
                 </div>
                 </div>
